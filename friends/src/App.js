@@ -1,10 +1,13 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
+import Login from './components/Login/Login';
 
 function App() {
   return (
     <div className="App">
-    
+    <Login />
+    <Route path="/login" component={Login} />
     </div>
   );
 }
