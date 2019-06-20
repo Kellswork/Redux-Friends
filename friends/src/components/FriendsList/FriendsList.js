@@ -1,29 +1,34 @@
 import './FriendsList.css'
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Friend from '../Friend/Friend';
+import { fetchFriends } from '../../actions/';
 
 
-function friends(props) {
-    const friendsList = props.friends || [{
-        id: 1,
-        name: 'Joe',
-        age: 24,
-        email: 'joe@lambdaschool.com',
-      }];
-    return (
-        friendsList.map((friend) => <Friend key={friend.id} friend={friend} />)
-    )
-}
+class FriendsList extends Component {
 
-friends.propTypes = {
+    componentDidMount() {
+        this.props.fetchFriends();
 
-}
-const mapStateToProps = (state) => {
-    return {
-        friends: state.friends
+    }
+
+    render() {
+        const friendsList = this.props.friends || [];
+
+        return (
+            <div>
+                {friendsList.map(friend => <Friend key={friend.id} friend={friend} />)}
+            </div>
+        )
     }
 }
-export default connect(mapStateToProps)(friends);
+
+
+const mapStateToProps = (state) => {
+    return {
+        friends: state.friendsReducer.friends
+
+    }
+}
+export default connect(mapStateToProps, { fetchFriends })(FriendsList);
 
