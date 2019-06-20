@@ -1,0 +1,15 @@
+.friends-container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.friends-container > h1 {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.friends {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5%;
+}

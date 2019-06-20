@@ -1,6 +1,6 @@
 import "./FriendForm.css";
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import { addFriend } from "../../actions";
 
 function FriendForm(props) {
@@ -11,11 +11,13 @@ function FriendForm(props) {
   const onAddFriend = e => {
     e.preventDefault();
     const userDetails = {
-        name: nameRef.current.value,
-        age: ageRef.current.value,
-        email: emailRef.current.value,
-    }
-    props.addFriend(userDetails)
+      name: nameRef.current.value,
+      age: ageRef.current.value,
+      email: emailRef.current.value
+    };
+    props.addFriend(userDetails);
+
+    props.history.push("/friends");
   };
 
   return (
@@ -40,4 +42,7 @@ function FriendForm(props) {
   );
 }
 
-export default connect(null, {addFriend})(FriendForm);
+export default connect(
+  null,
+  { addFriend }
+)(FriendForm);

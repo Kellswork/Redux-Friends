@@ -10,11 +10,10 @@ import FriendForm from './components/FriendForm/FriendForm';
 function App() {
   return (
     <div className="App">
-      <FriendForm />
       <Switch>
         <Route path="/login" component={Login} />
         <PrivateRoute path='/friends' component={FriendsList} />
-        {/* <PrivateRoute path='/friend_form' component={FriendForm} /> */}
+        <PrivateRoute path='/friend_form' component={FriendForm} />
       </Switch>
     </div>
   );

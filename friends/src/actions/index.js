@@ -9,7 +9,10 @@ import {
   FETCHING_FRIENDS_FAILURE,
   ADDING_FRIEND,
   ADDING_FRIEND_SUCCESS,
-  ADDING_FRIEND_FAILURE
+  ADDING_FRIEND_FAILURE,
+  DELETING_FRIEND,
+  DELETING_FRIEND_SUCCESS,
+  DELETING_FRIEND_FAILURE
 } from "./actionTypes";
 
 export const login = userDetails => dispatch => {
@@ -59,7 +62,6 @@ export const addFriend = userDetails => dispatch => {
   axiosAuth()
     .post("http://localhost:5000/api/friends", userDetails)
     .then(res => {
-      console.log(res)
       dispatch({ type: ADDING_FRIEND_SUCCESS, payload: res.data });
     })
     .catch(error => {
@@ -70,6 +72,28 @@ export const addFriend = userDetails => dispatch => {
     })
     .finally(() => {
       dispatch({ type: ADDING_FRIEND, payload: false });
+    });
+};
 
+export const deleteFriend = id => dispatch => {
+  dispatch({
+    type: DELETING_FRIEND,
+    payload: true
+  });
+
+  axiosAuth()
+    .delete(`http://localhost:5000/api/friends/${id}`)
+    .then(res => {
+      dispatch({ type: DELETING_FRIEND_SUCCESS, payload: res.data });
     })
+    .catch(error => {
+      console.log(error)
+      dispatch({
+        type: DELETING_FRIEND_FAILURE,
+        payload: "Could not delete friend, please try again later"
+      });
+    })
+    .finally(() => {
+      dispatch({ type: DELETING_FRIEND, payload: false });
+    });
 };
