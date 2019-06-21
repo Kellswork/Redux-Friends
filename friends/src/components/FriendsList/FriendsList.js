@@ -11,7 +11,7 @@ class FriendsList extends Component {
 
   render() {
     if (this.props.fetching) {
-      return  <div class="loader">Loading...</div>
+      return  <div className="loader">Loading...</div>
       }
 
     const friendsList = this.props.friends || [];

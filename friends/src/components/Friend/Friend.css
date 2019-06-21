@@ -27,15 +27,29 @@
     padding-bottom: 10px; 
 }
 
-.friend .delete-btn {
+.friends .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.friend button {
     height: 28px;
-    width: 130px;
+    width: 110px;
     margin-top: 7px;
-    background: rgb(173, 24, 81);
+    
     color: white;
     outline: none;
     transition: background .2s ease-out;
     cursor: pointer;
     border-radius: 5px;
     font-size: 0.9em;
+}
+
+.friend .delete-btn {
+    background: rgb(173, 24, 81);
+}
+
+.friend .edit-btn {
+    background:rgb(228, 67, 228);
 }

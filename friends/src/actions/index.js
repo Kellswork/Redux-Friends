@@ -1,7 +1,7 @@
 import axios from "axios";
 import axiosAuth from "../components/axiosAuth";
 import {
-  LOGGIN_IN,
+  LOADING,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   IS_FETCHING_FRIENDS,
@@ -16,7 +16,7 @@ import {
 } from "./actionTypes";
 
 export const login = userDetails => dispatch => {
-  dispatch({ type: LOGGIN_IN });
+  dispatch({ type: LOADING });
   axios
     .post("http://localhost:5000/api/login", userDetails)
     .then(res => {
@@ -27,7 +27,7 @@ export const login = userDetails => dispatch => {
       dispatch({ type: LOGIN_FAILURE, payload: error.response.data.error });
     })
     .finally(() => {
-      dispatch({ type: LOGGIN_IN, payload: false });
+      dispatch({ type: LOADING, payload: false });
     });
 };
 
@@ -39,7 +39,6 @@ export const fetchFriends = () => dispatch => {
   axiosAuth()
     .get("http://localhost:5000/api/friends")
     .then(res => {
-      console.log(res.data);
       dispatch({ type: FETCHING_FRIENDS_SUCCESS, payload: res.data });
     })
     .catch(error => {

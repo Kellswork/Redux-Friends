@@ -1,4 +1,4 @@
-export const LOGGIN_IN = 'LOGGIN_IN';
+export const LOADING = 'LOADING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const FRIEND_SUCCESS = 'FRIEND_SUCCESS';

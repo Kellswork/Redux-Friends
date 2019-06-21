@@ -3,6 +3,7 @@ import './Login.css';
 import { connect } from 'react-redux';
 import { login } from '../../actions';
 import { Redirect } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 class Login extends Component {
     constructor() {
@@ -22,9 +23,12 @@ class Login extends Component {
     }
 
     render() {
+        const {error } = this.props;
 
-        return (
-
+        if(error) { 
+            toast.error(error)
+        }
+        return( 
            <React.Fragment>
                {this.props.isLoggedIn && <Redirect to="/friends" />}
                <form onSubmit={this.onSubmit}>
@@ -32,11 +36,13 @@ class Login extends Component {
                 <div className='login-field'>
                     <div className='input-group'>
                         <label htmlFor='name'>Name</label>
-                        <input type='text' name='name' ref={this.nameRef} />
+                        <input className='input' type='text' name='name' ref={this.nameRef} />
+                        <span className="border"></span>
                     </div>
                     <div className='input-group'>
                         <label htmlFor='password'>password</label>
-                        <input type='password' name='password' ref={this.passwordRef} />
+                        <input className='input' type='password' name='password' ref={this.passwordRef} />
+                        <span className="border"></span>
                     </div>
                     <button className='btn'>Login</button>
                 </div>
@@ -47,7 +53,9 @@ class Login extends Component {
 }
 const mapStateToProps = state => {
     return {
-        isLoggedIn: localStorage.getItem('token') || null
+        isLoggedIn: state.loginReducer.loggingIn,
+        error: state.loginReducer.error,
+
     }
 }
 

@@ -1,5 +1,5 @@
 import {
-  LOGGIN_IN,
+  LOADING,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   IS_FETCHING_FRIENDS,
@@ -19,12 +19,12 @@ const initialState = {
   deletingFriend: false,
   friends: [],
   loggingIn: false,
-  error: null
+  error: ''
 };
 
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGGIN_IN:
+    case LOADING:
       return {
         ...state,
         loggingIn: true
@@ -32,7 +32,7 @@ export const loginReducer = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        loggingIn: false
+        loggingIn: true
       };
 
     case LOGIN_FAILURE:

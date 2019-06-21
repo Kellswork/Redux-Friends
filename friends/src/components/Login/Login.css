@@ -20,13 +20,16 @@ form > h2 {
 .input-group:nth-child(2),.input-group:nth-child(3) {
     padding-top: 30px;
 }
+.input-group {
+    position: relative;
+}
 .input-group label {
     display: block;
     padding-top: 10px;
 
 }
 
-.input-group input {
+.input-group input { 
     border: none;
     border-bottom: 1px solid ;
     outline: none;
@@ -37,9 +40,29 @@ form > h2 {
     transition: all .2s ease-out
 }
 
-.input-group input:focus {
-    border-bottom: 1px solid rgb(228, 67, 228);
+.input ~ .border {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 0;
+ height: 2px;
+ background-color:rgb(228, 67, 228);
 }
+
+:focus {
+    outline: none;
+   }
+
+.input:focus ~ .border {
+    width: 90%;
+    transition: 0.5s;
+   }
+
+
+/* .input-group input:focus {
+    border-bottom: 1px solid rgb(228, 67, 228);
+    transition: 0.5s;
+} */
 
 
 .btn {
