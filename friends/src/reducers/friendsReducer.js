@@ -57,14 +57,14 @@ export const friendsReducer = (state = initialState, action) => {
     case FETCHING_FRIENDS_SUCCESS:
       return {
         ...state,
-        fetchingFriends: false,
+        
         friends: action.payload
       };
 
     case FETCHING_FRIENDS_FAILURE:
       return {
         ...state,
-        fetchingFriends: false,
+        
         error: action.payload
       };
     case ADDING_FRIEND:

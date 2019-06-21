@@ -10,6 +10,10 @@ class FriendsList extends Component {
   }
 
   render() {
+    if (this.props.fetching) {
+      return  <div class="loader">Loading...</div>
+      }
+
     const friendsList = this.props.friends || [];
 
     return (
@@ -27,7 +31,8 @@ class FriendsList extends Component {
 
 const mapStateToProps = state => {
   return {
-    friends: state.friendsReducer.friends
+    friends: state.friendsReducer.friends,
+    fetching: state.friendsReducer.fetchingFriends
   };
 };
 export default connect(
