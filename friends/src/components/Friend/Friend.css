@@ -1,0 +1,55 @@
+.friend {
+    width: 30%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    box-shadow: 0 4px 8px 0 rgba(228, 67, 228, 0.45);
+    transition: 0.3s;
+    border-radius: 4px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.friend:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.friend h2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.friend p {
+    padding-bottom: 10px; 
+}
+
+.friends .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.friend button {
+    height: 28px;
+    width: 110px;
+    margin-top: 7px;
+    
+    color: white;
+    outline: none;
+    transition: background .2s ease-out;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.friend .delete-btn {
+    background: rgb(173, 24, 81);
+}
+
+.friend .edit-btn {
+    background:rgb(228, 67, 228);
+}

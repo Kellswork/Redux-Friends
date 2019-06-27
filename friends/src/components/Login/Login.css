@@ -1,0 +1,85 @@
+form {
+    margin: 0 auto;
+    max-width: 400px;
+    height: 450px;
+    margin-top: 5%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgba(228, 67, 228, 0.45);
+}
+form > h2 {
+    text-align: center;
+    padding-top: 10%;
+   }
+
+.login-field {
+    box-sizing: border-box;
+    margin-top: 10%;
+    padding-left: 10%;
+    padding-right: 5%;
+}
+.input-group:nth-child(2),.input-group:nth-child(3) {
+    padding-top: 30px;
+}
+.input-group {
+    position: relative;
+}
+.input-group label {
+    display: block;
+    padding-top: 10px;
+
+}
+
+.input-group input { 
+    border: none;
+    border-bottom: 1px solid ;
+    outline: none;
+    box-sizing: border-box;
+    width: 90%;
+    padding-top: 10px;
+    font-size: 1.1em;
+    transition: all .2s ease-out
+}
+
+.input ~ .border {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 0;
+ height: 2px;
+ background-color:rgb(228, 67, 228);
+}
+
+:focus {
+    outline: none;
+   }
+
+.input:focus ~ .border {
+    width: 90%;
+    transition: 0.5s;
+   }
+
+
+/* .input-group input:focus {
+    border-bottom: 1px solid rgb(228, 67, 228);
+    transition: 0.5s;
+} */
+
+
+.btn {
+    margin-top: 30px;
+    height: 40px;
+    width: 90%;
+    font-size: 1.1em;
+    border-radius: 20px;
+    background: rgb(228, 67, 228);
+    color: white;
+    outline: none;
+    transition: background .2s ease-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgba(238, 83, 238, 0.699);
+
+}
+
